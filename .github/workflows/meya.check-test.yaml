@@ -35,5 +35,5 @@ jobs:
       - name: Run tests
         run: meya test
       - name: Deploy
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: meya push --force --build-image

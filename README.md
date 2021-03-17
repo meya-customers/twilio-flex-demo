@@ -1,8 +1,8 @@
-![Meya build](https://github.com/meya-ai/grid-template-hello-world/workflows/Meya%20build/badge.svg)
+![Meya build](https://github.com/meya-customers/twilio-flex-demo/workflows/Meya%20build/badge.svg)
 
-# hello-world
+# twilio-flex-demo
 
-Basic template BFML and Python code that runs on Meya.
+Demo Twilio Flex contact center integration.
 
 ## Setup
 
