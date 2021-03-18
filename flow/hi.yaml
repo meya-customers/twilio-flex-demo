@@ -1,5 +1,6 @@
 triggers:
   - keyword: hi
+    when: true
 
 steps:
   - say: Hello!
