@@ -4,6 +4,18 @@
 
 Demo Twilio Flex contact center integration.
 
+## Insurance use-case
+In this demo, you'll learn how to:
+* build an insurance lead generation app using Twilio Flex and the Orb,
+* triage users based on their attributes, like customer status, or the product they're interested in,
+* run flows using agent commands,
+* automatically request a CSAT rating when the chat ends.
+
+Video walkthrough:
+* [Part 1: Demo](https://www.loom.com/share/20568bc2bc7a4b829fe148f1a624c76c)
+* [Part 2: Twilio Flex configuration](https://www.loom.com/share/cc2bb78c4a634731877fec0b006eacaf)
+* [Part 3: Meya app code](https://www.loom.com/share/6d8cb2014e874f0c9192ed42399f7015)
+
 ## Setup
 
 ```shell script
