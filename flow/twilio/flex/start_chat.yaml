@@ -11,11 +11,14 @@ steps:
     send_transcript: true
     integration: integration.twilio.flex
 
-  - note: |
-      Name: (@ user.name )
-      Email: (@ user.email )
-      Customer type: (@ user.customer_type )
-      Product: (@ user.product )
-      (@ flow.product_responses )
+  # Save summary info here so it can be verified in flow.insurance.verify
+  - thread_set:
+      summary: |
+        Name: (@ user.name )
+        Email: (@ user.email )
+        Customer type: (@ user.customer_type )
+        Product: (@ user.product )
+        (@ flow.product_responses )
 
+  - note: (@ thread.summary )
   - end

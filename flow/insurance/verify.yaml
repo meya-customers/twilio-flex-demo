@@ -1,0 +1,11 @@
+triggers:
+  - agent_command: verify
+
+steps:
+  - say: Is this information correct?
+  - say: (@ thread.summary )
+    quick_replies:
+      - text: Yes
+        result: true
+      - text: No
+        result: false
