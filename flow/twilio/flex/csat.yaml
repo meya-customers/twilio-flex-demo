@@ -1,7 +1,13 @@
 triggers:
   - agent_command: csat
+  - event_type: meya.twilio.flex.event.reservation_completed
 
 steps:
-  - rating: thumbs
-    title: How did you enjoy your experience?
+  - status: (@ flow.event.data.worker_attributes.full_name ) has left the chat.
+  - say: How did you enjoy your experience?
+    quick_replies:
+      - text: 👍
+        result: good
+      - text: 👎
+        result: bad
   - say: Thank you for your rating.
