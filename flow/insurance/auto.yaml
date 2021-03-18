@@ -1,0 +1,27 @@
+# Outputs:
+#   flow.product_responses: Product-specific info an agent needs to provide a quote.
+#
+steps:
+  - ask_form: What year is the vehicle?
+    placeholder: '2017'
+  - flow_set: vehicle_year
+
+  - say: What type of vehicle is it?
+    quick_replies:
+      - text: Compact
+        result: Compact
+      - text: SUV
+        result: SUV
+      - text: Van
+        result: Van
+      - text: Sedan
+        result: Sedan
+      - text: Truck
+        result: Truck
+  - flow_set: vehicle_type
+
+  - flow: flow.twilio.flex.pre_chat
+    data:
+      product_responses: |-
+        Vehicle year: (@ flow.vehicle_year )
+        Vehicle type: (@ flow.vehicle_type )

@@ -15,14 +15,14 @@ steps:
 
   - say: Got it. What are you looking for today?
     quick_replies:
-      - text: Renters insurance
-        result: renter
+      - text: Auto insurance
+        result: auto
       - text: Homeowners insurance
-        result: homeowner
+        result: home
   - user_set: product
 
-  - if: (@ user.product == "renter" )
+  - if: (@ user.product == "home" )
     then:
-      flow: flow.insurance.renter
-    else:
       flow: flow.insurance.homeowner
+    else:
+      flow: flow.insurance.auto

@@ -1,5 +1,5 @@
 # Inputs:
-#   flow.product_responses: Product-specific info. Comes from flow.insurance.homeowner or flow.insurance.renter.
+#   flow.product_responses: Product-specific info. Comes from flow.insurance.homeowner or flow.insurance.auto.
 #
 # Outputs:
 #   flow.product_responses: Product-specific info an agent needs to provide a quote.
