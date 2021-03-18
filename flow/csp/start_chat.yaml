@@ -1,0 +1,21 @@
+# Inputs:
+#   flow.product_responses: Product-specific info. Comes from flow.csp.pre_chat.
+#
+steps:
+  - type: meya.twilio.flex.component.start_chat
+    chat_friendly_name: (@ user.name) - (@ user.product)
+    task_attributes:
+      customer_type: (@ user.customer_type )
+      product: (@ user.product )
+      language: (@ user.language )
+    send_transcript: true
+    integration: integration.twilio.flex
+
+  - note: |
+      Name: (@ user.name )
+      Email: (@ user.email )
+      Customer type: (@ user.customer_type )
+      Product: (@ user.product )
+      (@ flow.product_responses )
+
+  - end
