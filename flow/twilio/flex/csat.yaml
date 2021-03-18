@@ -1,0 +1,7 @@
+triggers:
+  - agent_command: csat
+
+steps:
+  - rating: thumbs
+    title: How did you enjoy your experience?
+  - say: Thank you for your rating.
