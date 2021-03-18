@@ -4,15 +4,6 @@ triggers:
 
 steps:
   - status: (@ flow.event.data.agent_name ) has joined the chat.
-  - thread_set:
-      agent_name: (@ flow.event.data.agent_name )
----
-id: flow.twilio.flex.reservation_completed
-triggers:
-  - event_type: meya.twilio.flex.event.reservation_completed
-
-steps:
-  - status: (@ thread.agent_name ) has left the chat.
 ---
 id: flow.twilio.flex.task_queue_entered
 triggers:
@@ -23,10 +14,7 @@ steps:
     then:
       status: You're next in line! An agent will be with your shortly.
     else:
-      status: >
-        You're #(@ flow.event.data.task_priority) in the queue. An agent will be with
-        you shortly.
-
+      status: You're in the queue. An agent will be with you shortly.
 ---
 id: flow.twilio.flex.task_canceled
 triggers:
