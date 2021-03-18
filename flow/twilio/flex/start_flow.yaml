@@ -2,7 +2,7 @@ triggers:
   - keyword: start_flex_flow
 
 steps:
-  - jump: (@ user.language)
+  - jump: en
 
   - (pt)
   - (pt-BR)
