@@ -1,0 +1,29 @@
+triggers:
+  - type: page_open
+    when: (@ not thread.page_open )
+  - keyword: start
+
+steps:
+  - say: Hi! I'm the Acme insurance assistant.
+
+  - say: Do you already have an Acme account?
+    quick_replies:
+      - text: Yes
+        result: existing
+      - text: No
+        result: new
+  - user_set: customer_type
+
+  - say: Got it. What are you looking for today?
+    quick_replies:
+      - text: Auto insurance
+        result: auto
+      - text: Homeowners insurance
+        result: home
+  - user_set: product
+
+  - if: (@ user.product == "home" )
+    then:
+      flow: flow.insurance.homeowner
+    else:
+      flow: flow.insurance.auto

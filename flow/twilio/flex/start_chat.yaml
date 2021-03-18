@@ -1,21 +1,24 @@
-triggers:
-  - keyword: transfer_twilio_flex
-
+# Inputs:
+#   flow.product_responses: Product-specific info. Comes from flow.twilio.flex.pre_chat.
+#
 steps:
   - type: meya.twilio.flex.component.start_chat
-    chat_friendly_name: (@ user.name) - (@ flow.issue) issue
+    chat_friendly_name: (@ user.name) - (@ user.product)
     task_attributes:
-      language: (@ user.language)
+      customer_type: (@ user.customer_type )
+      product: (@ user.product )
+      language: (@ user.language )
     send_transcript: true
     integration: integration.twilio.flex
 
-  - if: (@ user.location )
-    then:
-      jump: display_location
-    else: next
+  # Save summary info here so it can be verified in flow.insurance.verify
+  - thread_set:
+      summary: |
+        Name: (@ user.name )
+        Email: (@ user.email )
+        Customer type: (@ user.customer_type )
+        Product: (@ user.product )
+        (@ flow.product_responses )
 
-  - note: Couldn't determine customer location
+  - note: (@ thread.summary )
   - end
-
-  - (display_location)
-  - note: customer location (@ user.location | string )

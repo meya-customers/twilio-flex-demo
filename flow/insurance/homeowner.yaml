@@ -1,0 +1,22 @@
+# Outputs:
+#   flow.product_responses: Product-specific info an agent needs to provide a quote.
+#
+steps:
+  - say: Does your home have a fire alarm?
+    quick_replies:
+      - text: Yes
+        result: true
+      - text: No
+        result: false
+  - flow_set: has_fire_alarm
+
+  - ask: Do you own any valuable jewelry, cameras, bikes or fine art?
+    composer:
+      placeholder: Describe the items
+  - flow_set: valuable_items
+
+  - flow: flow.twilio.flex.pre_chat
+    data:
+      product_responses: |-
+        Has fire alarm? (@ flow.has_fire_alarm )
+        Valuable items: (@ flow.valuable_items )

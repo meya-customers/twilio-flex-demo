@@ -1,0 +1,19 @@
+# Inputs:
+#   flow.product_responses: Product-specific info. Comes from flow.insurance.homeowner or flow.insurance.auto.
+#
+# Outputs:
+#   flow.product_responses: Product-specific info an agent needs to provide a quote.
+
+steps:
+  - ask_form: Your minutes away from an awesome insurance quote. What's your name?
+    placeholder: For example, Dorinda
+  - user_set: name
+
+  - ask_form: Last question (I promise). What's your email address?
+    expect: email_address
+    placeholder: iloveinsurance@example.com
+  - user_set: email
+
+  - flow: flow.twilio.flex.start_chat
+    data:
+      product_responses: (@ flow.product_responses )
