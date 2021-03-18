@@ -15,7 +15,7 @@ steps:
       placeholder: Describe the items
   - flow_set: valuable_items
 
-  - flow: flow.csp.pre_chat
+  - flow: flow.twilio.flex.pre_chat
     data:
       product_responses: |-
         Has fire alarm? (@ flow.has_fire_alarm )

@@ -14,6 +14,6 @@ steps:
     placeholder: iloveinsurance@example.com
   - user_set: email
 
-  - flow: flow.csp.start_chat
+  - flow: flow.twilio.flex.start_chat
     data:
       product_responses: (@ flow.product_responses )

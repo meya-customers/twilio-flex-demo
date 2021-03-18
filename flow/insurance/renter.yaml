@@ -10,7 +10,7 @@ steps:
     placeholder: '1000'
   - flow_set: sq_ft
 
-  - flow: flow.csp.pre_chat
+  - flow: flow.twilio.flex.pre_chat
     data:
       product_responses: |-
         Number of roommates: (@ flow.num_roommates )
