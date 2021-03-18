@@ -3,26 +3,34 @@ triggers:
   - event_type: meya.twilio.flex.event.reservation_accepted
 
 steps:
-  - status: Agent (@ flow.event.data.agent_name ) entered chat
+  - status: (@ flow.event.data.agent_name ) has joined the chat.
+  - thread_set:
+      agent_name: (@ flow.event.data.agent_name )
 ---
 id: flow.twilio.flex.reservation_completed
 triggers:
   - event_type: meya.twilio.flex.event.reservation_completed
 
 steps:
-  - status: The agent ended the chat
+  - status: (@ thread.agent_name ) has left the chat.
 ---
 id: flow.twilio.flex.task_queue_entered
 triggers:
   - event_type: meya.twilio.flex.event.task_queue_entered
 
 steps:
-  - status: >
-      Your request was accepted by flex. Your task's priority is set at (@ flow.event.data.task_priority)
+  - if: (@ flow.event.data.task_priority == "0")
+    then:
+      status: You're next in line! An agent will be with your shortly.
+    else:
+      status: >
+        You're #(@ flow.event.data.task_priority) in the queue. An agent will be with
+        you shortly.
+
 ---
 id: flow.twilio.flex.task_canceled
 triggers:
   - event_type: meya.twilio.flex.event.task_canceled
 
 steps:
-  - status: Your task has not being accepted
+  - status: Unfortunately, no agent is available at the moment. Please try again later.
