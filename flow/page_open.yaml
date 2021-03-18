@@ -1,5 +1,6 @@
 triggers:
   - type: page_open
+    when: (@ not thread.page_open )
 
 steps:
   - say: Hi! I'm the Acme insurance assistant.
