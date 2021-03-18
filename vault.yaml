@@ -1,1 +1,5 @@
-foo: bar
+twilio.account_sid: xxx
+twilio.auth_token: xxx
+twilio.phone_number: '+18005551234'
+twilio_flex.flex_flow_sid: xxx
+twilio_flex.flex_chat_service_sid: xxx
