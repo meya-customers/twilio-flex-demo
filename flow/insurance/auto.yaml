@@ -9,15 +9,10 @@ steps:
   - say: What type of vehicle is it?
     quick_replies:
       - text: Compact
-        result: Compact
       - text: SUV
-        result: SUV
       - text: Van
-        result: Van
       - text: Sedan
-        result: Sedan
       - text: Truck
-        result: Truck
   - flow_set: vehicle_type
 
   - flow: flow.twilio.flex.pre_chat

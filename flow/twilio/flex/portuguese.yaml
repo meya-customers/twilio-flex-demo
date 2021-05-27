@@ -13,9 +13,7 @@ steps:
   - ask: Me informe por favor aonde ocorre seu problema
     buttons:
       - text: Hardware
-        result: hardware
       - text: Software
-        result: software
 
   - say: Show! Deixa eu achar alguém pra te ajudar!
 
